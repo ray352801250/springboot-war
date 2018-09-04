@@ -2,6 +2,7 @@ package com.dodoca.controller;
 
 import com.dodoca.entity.Employee;
 import com.dodoca.mapper.EmployeeMapper;
+import com.dodoca.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,7 +23,7 @@ public class HelloController {
     JdbcTemplate jdbcTemplate;
 
     @Autowired
-    EmployeeMapper employeeMapper;
+    EmployeeService employeeService;
 
     @GetMapping("/hello")
     @ResponseBody
@@ -37,12 +38,12 @@ public class HelloController {
     @ResponseBody
 //    @CrossOrigin(origins = "http://localhost:8081", maxAge = 3600)
     public Employee getEmpById(@PathVariable("id") Integer id){
-        return employeeMapper.getEmpById(id);
+        return employeeService.getEmployeeById(id);
     }
 
     @GetMapping("/emp")
     @ResponseBody
     public int insertEmp(Employee emp){
-        return employeeMapper.insertEmp(emp);
+        return employeeService.insertEmployee(emp);
     }
 }
