@@ -3,9 +3,11 @@ package com.dodoca.controller;
 import com.dodoca.entity.Employee;
 import com.dodoca.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081", maxAge = 3600) //解决请求跨域问题
 public class EmpController {
 
     @Autowired
@@ -13,7 +15,6 @@ public class EmpController {
 
 
     @GetMapping("/employee/{id}")
-//    @CrossOrigin(origins = "http://localhost:8081", maxAge = 3600)
     public Employee getEmpById(@PathVariable("id") Integer id){
         return employeeService.getEmployeeById(id);
     }

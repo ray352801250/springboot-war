@@ -27,7 +27,6 @@ public class HelloController {
 
     @GetMapping("/hello")
     @ResponseBody
-//    @CrossOrigin(origins = "http://localhost:8081", maxAge = 3600)
     public Map<String, Object> hello(){
         List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from design_feature");
         return maps.get(0);
