@@ -1,12 +1,14 @@
 spring:
+  application:
+    name: springboot-war
   datasource:
 #   配置数据库连接信息
     url: jdbc:mysql://127.0.0.1/dmall?zeroDateTimeBehavior=convertToNull
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
+#    配置数据源类型,默认为tomcat的
     type: com.alibaba.druid.pool.DruidDataSource
-
 #    连接池相关设置
     initial-size: 5
     min-idle: 5
@@ -18,16 +20,32 @@ spring:
     test-while-idle: true
     test-on-borrow: false
     test-on-return: false
-
 #    打开PSCache，并且指定每个连接上PSCache的大小
     poolPreparedStatements: true
     maxpoolpreparedstatementperconnectionsize: 20
-
 #      配置监控统计
     filters: stat,wall
-
 #    通过connectProperties属性来打开mergeSql功能；慢SQL记录
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+  redis:
+    database: 0
+    host: 127.0.0.1
+    password: 123456
+    port: 6379
+    timeout: 3000
+    jedis:
+      pool:
+#      连接池最大连接数(负数表示无限制)
+        max-active: 8
+#      等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionExce
+        max-wait: 2000
+#        最大空闲连接
+        max-idle: 8
+#        最小控制连接
+        min-idle: 0
+
+
 
 
 
