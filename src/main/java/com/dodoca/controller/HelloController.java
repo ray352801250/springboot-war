@@ -32,18 +32,4 @@ public class HelloController {
         List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from design_feature");
         return maps.get(0);
     }
-
-
-    @GetMapping("/emp/{id}")
-    @ResponseBody
-//    @CrossOrigin(origins = "http://localhost:8081", maxAge = 3600)
-    public Employee getEmpById(@PathVariable("id") Integer id){
-        return employeeService.getEmployeeById(id);
-    }
-
-    @GetMapping("/emp")
-    @ResponseBody
-    public int insertEmp(Employee emp){
-        return employeeService.insertEmployee(emp);
-    }
 }

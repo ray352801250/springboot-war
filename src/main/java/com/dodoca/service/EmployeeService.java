@@ -18,4 +18,11 @@ public interface EmployeeService {
      */
     int insertEmployee(Employee employee);
 
+    /**
+     * 插入后直接返回插入后的数据
+     * @param employee
+     * @return
+     */
+    Employee insertEmp(Employee employee);
+
 }

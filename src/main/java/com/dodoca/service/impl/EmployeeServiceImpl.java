@@ -27,4 +27,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return employeeMapper.insertEmp(employee);
     }
+
+    @Override
+    public Employee insertEmp(Employee employee) {
+        if(employee == null){
+            System.out.println("无法将空对象插入,日志记录抛异常");
+        }
+        employeeMapper.insertEmp(employee);
+        return employee;
+    }
+
+
 }
