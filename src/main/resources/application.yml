@@ -33,17 +33,20 @@ spring:
     host: 127.0.0.1
     password: 123456
     port: 6379
-    timeout: 3000
+    timeout: 4000
     jedis:
       pool:
-#      连接池最大连接数(负数表示无限制)
-        max-active: 8
-#      等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionExce
-        max-wait: 2000
+#      连接池最大连接数(负数表示无限制)  max-active改为以下属性
+        max-total: 9
 #        最大空闲连接
-        max-idle: 8
+        max-idle: 9
 #        最小控制连接
         min-idle: 0
+#        连接池最大阻塞等待时间（使用负值表示没有限制）max-wait 变为以下属性
+        max-wait-millis: 2000
+#        线程超时时间,超过设置的时间没有结束的话杀掉该线程默认为10000
+        evictorShutdownTimeoutMillis: 9000
+
 
 
 
