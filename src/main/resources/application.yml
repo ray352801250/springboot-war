@@ -46,12 +46,3 @@ spring:
         max-wait-millis: 2000
 #        线程超时时间,超过设置的时间没有结束的话杀掉该线程默认为10000
         evictorShutdownTimeoutMillis: 9000
-
-
-
-
-
-
-
-
-
